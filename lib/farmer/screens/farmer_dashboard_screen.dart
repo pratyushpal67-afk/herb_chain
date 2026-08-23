@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../theme/app_theme.dart';
 import '../../theme/app_tokens.dart';
 import '../widgets/farmer_batch_card.dart';
 import '../widgets/status_badge.dart';
-import '../../screens/register_harvest_batch_screen.dart';
+import 'add_batch_screen.dart';
 import 'my_batches_screen.dart';
 import 'batch_details_screen.dart';
 import 'notifications_screen.dart';
@@ -83,7 +82,6 @@ class FarmerDashboardScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // Farmer Header
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -122,8 +120,6 @@ class FarmerDashboardScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: AppSpacing.md),
-
-                  // Metrics Grid
                   Row(
                     children: [
                       _buildMetricCard(
@@ -176,14 +172,12 @@ class FarmerDashboardScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: AppSpacing.lg),
-
-                  // Register Batch Button
                   ElevatedButton.icon(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => const RegisterHarvestBatchScreen(),
+                          builder: (_) => const AddBatchScreen(),
                         ),
                       );
                     },
@@ -191,8 +185,6 @@ class FarmerDashboardScreen extends StatelessWidget {
                     label: const Text('REGISTER NEW HARVEST BATCH'),
                   ),
                   const SizedBox(height: AppSpacing.lg),
-
-                  // Recent Batches
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -209,7 +201,6 @@ class FarmerDashboardScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: AppSpacing.xxs),
-
                   FarmerBatchCard(
                     batchId: 'ASH-2026-001',
                     herbName: 'Ashwagandha Root Extract',
